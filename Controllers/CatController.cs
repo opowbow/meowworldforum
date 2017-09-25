@@ -27,7 +27,7 @@ namespace MeowWorld.Controllers
                     return "Nom nom nom nom nom nom nom nom.";
             }
 
-            return String.Empty;
+            return "No Such cat!";
         }
 
         [HttpGet("cat/all")]
