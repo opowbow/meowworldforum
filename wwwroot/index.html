@@ -42,8 +42,7 @@
             <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="/">
-            <img src="/images/RedHat.png" width=250  alt="Red Hat UKISSA" />
-            <img src="/images/red-hat-forum-emea-2017-logo.png" height=250 alt="Red Hat UKI Forum 2017"/>
+            <img src="images/RedHat.png" height=100 alt="Red Hat UKI Forum 2017"/></span>
         </a>
     </div>
     <div class="collapse navbar-collapse navbar-collapse-1">
@@ -77,13 +76,32 @@ Enter the webservice url (root as above)/cat/all to get all the cats in the stat
 Enter the webservice url (root as above)/cat/{<i>name</i>} to get the static noise for the cat via webservice.<br/>
 Click the 'Play with the Horde' to create and add cats to your own horde.<br/>
 Alternatively, enter a cat name here <input type='text' size='10' id='catName'/> and click <input type='button' value='Here' onClick="catLookup(document.getElementById('catName').value);"/> to see output <input type='text' size='25' id='output' onFocus='this.blur()'/><br/>
-</div>
-<div>
+<div class="container">
 <i>Metrics:</i><br/>
 Last webservice call took <input type='text' value='0' size='9' id='elapsed' onFocus='this.blur();'/>ms.<br/>
 </div>
-<div width="100%" align="right" valign="middle">
-<img src="images/openshift.png" width="125px">&nbsp;&nbsp;&nbsp;<img src="images/aspnet.png" width="125">
+
+<div class="container">
+  <h2>Vertical (basic) form</h2>
+  <form action="/action_page.php">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+
+<br/><br/><br/>
+<div width="100%" align="center" valign="middle">
+<img src="images/openshift.png" width="125px">&nbsp;&nbsp;&nbsp;<img src="images/aspnet.png" width="125">&nbsp;&nbsp;&nbsp;<img src="images/red-hat-forum-emea-2017-logo.png" height="75">
 </div>
 
 </div>
