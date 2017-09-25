@@ -34,6 +34,11 @@
   </script>
 </head>
 
+@{
+  
+  var pageRoot = this.Request.PathBase;
+}
+
 <body>
 <nav class="navbar navbar-default navbar-pf" role="navigation">
     <div class="navbar-header">
@@ -61,7 +66,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-primary">
             <li>
-                <a href="<%= this.Request.PathBase %>/index.html">MeowWorld Demo</a>
+                <a href="@pageRoot/index.html">MeowWorld Demo</a>
             </li>
             <li class="active">
                 <a href="horde/all">Play with the Horde</a>
