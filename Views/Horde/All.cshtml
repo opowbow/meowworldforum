@@ -34,11 +34,6 @@
   </script>
 </head>
 
-@{
-  
-  var pageRoot = Request.PathBase;
-}
-
 <body>
 <nav class="navbar navbar-default navbar-pf" role="navigation">
     <div class="navbar-header">
@@ -66,7 +61,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-primary">
             <li>
-                <a href="@pageRoot/index.html">MeowWorld Demo</a>
+                <a href="@Url.Content("~/")/index.html">MeowWorld Demo</a>
             </li>
             <li class="active">
                 <a href="horde/all">Play with the Horde</a>
