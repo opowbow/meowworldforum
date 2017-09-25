@@ -13,12 +13,17 @@
 
     function catLookup(catID)
     {
+      document.getElementById('output').value = "{Calling Webservice}..";
+      var start = performance.now();
+
       $.ajax(
       {
         url: '/cat/'+catID,
         dataType: 'text',
       }).done(function(text)
       {
+        var end = performance.now();
+
         document.getElementById('output').value = text;
       });
     }
@@ -53,7 +58,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-primary">
             <li class="active">
-                <a href="#">Info</a>
+                <a href="index.html">MeowWorld Demo</a>
             </li>
             <li>
                 <a href="horde/all" target="content">Play with the Horde</a>
@@ -70,6 +75,10 @@ Enter the webservice url (root as above)/cat/all to get all the cats in the stat
 Enter the webservice url (root as above)/cat/{<i>name</i>} to get the static noise for the cat via webservice.<br/>
 Click the 'Play with the Horde' to create and add cats to your own horde.<br/>
 Alternatively, enter a cat name here <input type='text' size='10' id='catName'/> and click <input type='button' value='Here' onClick="catLookup(document.getElementById('catName').value);"/> to see output <input type='text' size='25' id='output' onFocus='this.blur()'/><br/>
+</div>
+<div>
+<i>Metrics:</i>i><br/>
+Last webservice call took <input type='text' value='0' size='6' id='elapsed' onFocus='this.blur();'/>ms.<br/>
 </div>
 <div width="100%" align="right" valign="middle">
 <img src="images/openshift.png" width="125px">&nbsp;&nbsp;&nbsp;<img src="images/aspnet.png" width="125">
