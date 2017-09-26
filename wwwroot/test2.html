@@ -12,7 +12,7 @@
 
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-    .row.content {height: 650px}
+    .row.content {height: 500px}
     
     /* Set gray background color and 100% height */
     .sidenav {
@@ -46,12 +46,23 @@
 
   <script>
 
+    function displayTime()
+    {
+      var d = new Date();
+
+      var display = "" + ( d.getHours() < 10 ? "0":"" ) + d.getHours() + ":" +
+                         ( d.getMinutes() < 10 ? "0":"" ) + d.getMinutes() + ":" +
+                         ( d.getSeconds() < 10 ? "0":"" ) + d.getSeconds();
+
+      return display;
+    }
+
     function catLookup(catID)
     {
       document.getElementById('catOutputSpan').innerHTML = "{Calling Webservice}..";
 
       var d = new Date();
-      document.getElementById("webserviceCalled").innerHTML = d.toDateString();
+      document.getElementById("webserviceCalled").innerHTML = d.toDateString() + " at " + displayTime();
 
       var start = performance.now();
 
@@ -117,7 +128,7 @@
     <div class="col-sm-9">
       <h2>Output from Meow-world .NET Webservices</h2>
       <h5><span class="glyphicon glyphicon-time"></span> Last called <b><span id="webserviceCalled">(not called)</span></b>.</h5>
-      <h5><span class="glyphicon glyphicon-time"></span> Webservice response time <b><span id="webserviceElapsed">(not called)</span></b>.</h5>
+      <h5><span class="glyphicon glyphicon-time"></span> Webservice response time <b><span id="webserviceElapsed">(not called)</span></b></h5>
       <h5><span class="label label-success" id="bulletInfo">(No Cat Chosen)</span></h5><br>
       <span id="catOutputSpan"></span>
       
