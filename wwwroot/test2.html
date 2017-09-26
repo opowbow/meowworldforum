@@ -65,7 +65,7 @@
 
         if( text != "No Such cat!" )
         {
-          text = "<img src='" + catID + ".png' width='200px'> <b>" + text + "</b> (returned from webservice).";
+          text = "<img src='images/" + catID + ".png' width='200px'> <b>" + text + "</b> (returned from webservice).";
         }
 
         document.getElementById('webserviceElapsed').innerHTML = Math.ceil( end - start );
@@ -93,7 +93,7 @@
       <div align="center">
         <img src="images/winnie.png" title="Winnie the Cat" onClick="catLookup('winnie');" width="50px">
         <img src="images/jessie.png" title="Jessie the Kitten" onClick="catLookup('jessie');" width="50px">
-        <img src="images/murph.png" title="Murphy the Kitten" onClick="catLookup('murphy');" width="50px"><br/>
+        <img src="images/murphy.png" title="Murphy the Kitten" onClick="catLookup('murphy');" width="50px"><br/>
         <img src="images/molly.png" title="Molly the Hunter" onClick="catLookup('molly');" width="50px">
         <img src="images/dexter.png" title="Dexter the Ginger" onClick="catLookup('dexter');" width="50px">
         <img src="images/kali.png" title="Kali the Cat" onClick="catLookup('kali');" width="50px"> 
