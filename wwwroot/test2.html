@@ -65,7 +65,7 @@
 
         if( text != "No Such cat!" )
         {
-          text = "<img src='images/" + catID + ".png' width='200px'> <b>" + text + "</b> (returned from webservice).";
+          text = "<img src='images/" + catID + ".png' width='200px'><br/><b>" + text + "</b> (returned from webservice).";
         }
 
         document.getElementById('webserviceElapsed').innerHTML = "" + Math.ceil( end - start ) + "ms.";
@@ -82,7 +82,7 @@
 <body>
 
 <header class="container-fluid" align="right">
-  <p><img src="images/RedHat.png" width="125px"/></p>
+  <p><img src="images/RedHat.png" width="100px"/></p>
 </header>
 
 <div class="container-fluid">
@@ -107,7 +107,7 @@
       <div class="input-group">
         <input type="text" class="form-control" id="catName" placeholder="Enter a Cat name...">
         <span class="input-group-btn">
-          <button class="btn btn-default" type="button" onClick="catLookup(document.getElementById('catName'));">
+          <button class="btn btn-default" type="button" onClick="catLookup(document.getElementById('catName').value);">
             <span class="glyphicon glyphicon-search"></span>
           </button>
         </span>
@@ -115,7 +115,6 @@
     </div>
 
     <div class="col-sm-9">
-      <hr>
       <h2>Output from Meow-world .NET Webservices</h2>
       <h5><span class="glyphicon glyphicon-time"></span> Last called <b><span id="webserviceCalled">(not called)</span></b>.</h5>
       <h5><span class="glyphicon glyphicon-time"></span> Webservice response time <b><span id="webserviceElapsed">(not called)</span></b>.</h5>
