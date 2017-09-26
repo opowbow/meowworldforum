@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 650px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #aaa;
+      color: white;
+      padding: 15px;
+    }
+
+    /* Set black background color, white text and some padding */
+    header {
+      background-color: #aaa;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
+
+  <script>
+
+    function catLookup(catID)
+    {
+      document.getElementById('catOutputSpan').value = "{Calling Webservice}..";
+      var start = performance.now();
+
+      $.ajax(
+      {
+        url: '/cat/'+catID,
+        dataType: 'text',
+      }).done(function(text)
+      {
+        var end = performance.now();
+
+        document.getElementById('webserviceElapsed').innerHTML = ( end - start );
+        document.getElementById('catOutputSpan').innerHTML = text;
+      });
+    }
+
+  </script>
+</head>
+<body>
+
+<header class="container-fluid" align="right">
+  <p><img src="images/RedHat.png" width="125px"/></p>
+</header>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <br/>
+      <div width="100" align="center"><img src="images/winnie1.jpg" width="75%" border="1" bordercolor="black"/></div>
+      <h4>MEOWWORLD OSCP Demo</h4>
+      Demos written in .NET and hosted on OpenShift container platform, showing an ASP.NET/Razor app and webservices.
+      <br/><br/>
+
+      <div align="center">
+        <img src="images/winnie1.jpg" title="Winnie the Cat" width="50px">
+        <img src="images/jessie1.jpg" title="Jessie the Kitten" width="50px">
+        <img src="images/murph1.jpg" title="Murphy the Kitten" width="50px"><br/>
+        <img src="images/molly1.jpg" title="Molly the Hunter" width="50px">
+        <img src="images/dexter1.jpg" title="Dexter the Ginger" width="50px">
+        <img src="images/kali1.jpg" title="Kali the Cat" width="50px"> 
+      </div>
+      <br/><br/>
+
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Enter a Cat name...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div>
+    </div>
+
+    <div class="col-sm-9">
+      <h4><small>Select a cat by portrait or enter the name to call the webservice</small></h4>
+      <hr>
+      <h2>Output from OSCP Hosted .NET Webservice</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Last called <b><span id="webserviceCalled">(not called)</span></b>.</h5>
+      <h5><span class="glyphicon glyphicon-time"></span> Webservice response time <b><span id="webserviceElapsed">(not called)</span></b>.</h5>
+      <span id="catOutputSpan"></span>
+      <br><br>
+      
+      <h4><small>Example Second Output</small></h4>
+      <hr>
+      <h2>H2 Placeholder</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Updated (date here!).</h5>
+      <h5><span class="label label-success">Example output point</span></h5><br>
+      <p>Explanation text.</p>
+      <hr>
+
+      <h4>Leave a Comment:</h4>
+      <form role="form">
+        <div class="form-group">
+          <textarea class="form-control" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+      <br><br>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid">
+  <p><img src="images/openshift.png" width="125px"/></p>
+</footer>
+
+</body>
+</html>
