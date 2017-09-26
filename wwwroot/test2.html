@@ -105,9 +105,9 @@
       <br/><br/>
 
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Enter a Cat name...">
+        <input type="text" class="form-control" id="catName" placeholder="Enter a Cat name...">
         <span class="input-group-btn">
-          <button class="btn btn-default" type="button">
+          <button class="btn btn-default" type="button" onClick="catLookup(document.getElementById('catName'));">
             <span class="glyphicon glyphicon-search"></span>
           </button>
         </span>
@@ -115,18 +115,16 @@
     </div>
 
     <div class="col-sm-9">
-      <h4><small>Select a cat by portrait or enter the name to call the webservice</small></h4>
       <hr>
-      <h2>Output from OSCP Hosted .NET Webservice</h2>
+      <h2>Output from Meow-world .NET Webservices</h2>
       <h5><span class="glyphicon glyphicon-time"></span> Last called <b><span id="webserviceCalled">(not called)</span></b>.</h5>
       <h5><span class="glyphicon glyphicon-time"></span> Webservice response time <b><span id="webserviceElapsed">(not called)</span></b>.</h5>
       <h5><span class="label label-success" id="bulletInfo">(No Cat Chosen)</span></h5><br>
       <span id="catOutputSpan"></span>
       <br><br>
       
-      <h4><small>Cross-Container Service Calls</small></h4>
       <hr>
-      <h2>Provide a Webservice URL.</h2>
+      <h2>Output from cross-container Webservices.</h2>
       <h5><span class="glyphicon glyphicon-time"></span> Updated (date here!).</h5>
       <h5><span class="label label-success">Example output point</span></h5><br>
       <p>Explanation text.</p>
