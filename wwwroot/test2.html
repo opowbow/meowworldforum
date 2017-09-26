@@ -65,7 +65,7 @@
 
         if( text != "No Such cat!" )
         {
-          text = "<img src='images/" + catID + ".png' width='200px'><br/><b>" + text + "</b> (returned from webservice).";
+          text = "<img src='images/" + catID + ".png' width='200px'><br/><br/><b>" + text + "</b> (returned from webservice).";
         }
 
         document.getElementById('webserviceElapsed').innerHTML = "" + Math.ceil( end - start ) + "ms.";
@@ -89,7 +89,7 @@
   <div class="row content">
     <div class="col-sm-3 sidenav">
       <br/>
-      <div width="100" align="center"><img src="images/winnie.png" width="75%" border="1" bordercolor="black"/></div>
+      <div width="100" align="center"><img src="images/red-hat-forum-emea-2017-logo.png" width="75%"></div>
       <h4>MEOWWORLD OSCP Demo</h4>
       Demos written in .NET and hosted on OpenShift container platform, showing an ASP.NET/Razor app and webservices.
       <br/><br/>
@@ -120,7 +120,6 @@
       <h5><span class="glyphicon glyphicon-time"></span> Webservice response time <b><span id="webserviceElapsed">(not called)</span></b>.</h5>
       <h5><span class="label label-success" id="bulletInfo">(No Cat Chosen)</span></h5><br>
       <span id="catOutputSpan"></span>
-      <br><br>
       
       <hr>
       <h2>Output from cross-container Webservices.</h2>
