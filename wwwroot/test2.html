@@ -48,7 +48,11 @@
 
     function catLookup(catID)
     {
-      document.getElementById('catOutputSpan').value = "{Calling Webservice}..";
+      document.getElementById('catOutputSpan').innerHTML = "{Calling Webservice}..";
+
+      var d = new Date();
+      document.getElementById("webserviceCalled").innerHTML = d.toDateString();
+
       var start = performance.now();
 
       $.ajax(
@@ -59,7 +63,12 @@
       {
         var end = performance.now();
 
-        document.getElementById('webserviceElapsed').innerHTML = ( end - start );
+        if( text != "No Such cat!" )
+        {
+          text = "<img src='" + catID + ".png' width='200px'> <b>" + text + "</b> (returned from webservice).";
+        }
+
+        document.getElementById('webserviceElapsed').innerHTML = Math.ceil( end - start );
         document.getElementById('catOutputSpan').innerHTML = text;
       });
     }
