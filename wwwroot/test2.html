@@ -68,8 +68,12 @@
           text = "<img src='images/" + catID + ".png' width='200px'> <b>" + text + "</b> (returned from webservice).";
         }
 
-        document.getElementById('webserviceElapsed').innerHTML = Math.ceil( end - start );
+        document.getElementById('webserviceElapsed').innerHTML = "" + Math.ceil( end - start ) + "ms.";
         document.getElementById('catOutputSpan').innerHTML = text;
+
+        var catIDdisplay = "" + catID;
+
+        document.getElementById('bulletInfo').innerHTML = catIDdisplay.toUpperCase();
       });
     }
 
@@ -120,9 +124,9 @@
       <span id="catOutputSpan"></span>
       <br><br>
       
-      <h4><small>Example Second Output</small></h4>
+      <h4><small>Cross-Container Service Calls</small></h4>
       <hr>
-      <h2>H2 Placeholder</h2>
+      <h2>Provide a Webservice URL.</h2>
       <h5><span class="glyphicon glyphicon-time"></span> Updated (date here!).</h5>
       <h5><span class="label label-success">Example output point</span></h5><br>
       <p>Explanation text.</p>
