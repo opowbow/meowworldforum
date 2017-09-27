@@ -19,6 +19,12 @@
       background-color: #f1f1f1;
       height: 100%;
     }
+
+    .webserviceoutput {
+      background-color: green;
+      color: white;
+      padding: 2px;
+    }
     
     /* Set black background color, white text and some padding */
     footer {
@@ -55,6 +61,31 @@
                          ( d.getSeconds() < 10 ? "0":"" ) + d.getSeconds();
 
       return display;
+    }
+
+    function callService(serviceURL)
+    {
+      document.getElementById('webserviceOutput').innerHTML = "{Processing External Webservice}..";
+
+      var d = new Date();
+      document.getElementById("webservice2Called").innerHTML = d.toDateString() + " at " + displayTime();
+
+      var start = performance.now();
+
+      $.ajax(
+      {
+        url: serviceURL,
+        dataType: 'text',
+      }).done(function(text)
+      {
+        var end = performance.now();
+
+        document.getElementById('webserviceOutput').innerHTML = text;
+
+        document.getElementById('webservice2Elapsed').innerHTML = "" + Math.ceil( end - start ) + "ms.";
+
+        document.getElementById('targeturl').innerHTML = serviceURL;
+      });
     }
 
     function catLookup(catID)
@@ -134,17 +165,18 @@
       
       <hr>
       <h2>Output from cross-container Webservices.</h2>
-      <h5><span class="glyphicon glyphicon-time"></span> Updated (date here!).</h5>
-      <h5><span class="label label-success">Example output point</span></h5><br>
-      <p>Explanation text.</p>
+      <h5><span class="glyphicon glyphicon-time"></span> Last called <b><span id="webservice2Called">(not called)</span></b>.</h5>
+      <h5><span class="glyphicon glyphicon-time"></span> Webservice response time <b><span id="webservice2Elapsed">(not called)</span></b></h5>
+      <h5><span id="targeturl" class="label label-success">No URL Entered</span></h5><br>
+      <p class="webserviceoutput">Response from Webservice.</p>
       <hr>
 
-      <h4>Leave a Comment:</h4>
+      <h4>Enter a URL for an external Webservice:</h4>
       <form role="form">
         <div class="form-group">
-          <textarea class="form-control" rows="3" required></textarea>
+          <textarea class="form-control" id="wsurl" rows="1" placeholder="Enter fully formed Webservice URL here..." required></textarea>
         </div>
-        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="submit" class="btn btn-success">Call the cross-Container Webservice.</button>
       </form>
       <br><br>
     </div>
