@@ -65,6 +65,13 @@
 
     function callService(serviceURL)
     {
+      if( serviceURL == "" )
+      {
+        document.getElementById('webserviceOutput').innerHTML = "Please enter a webservice URL.";
+
+        return;
+      }
+
       document.getElementById('webserviceOutput').innerHTML = "{Processing External Webservice}..";
 
       var d = new Date();
